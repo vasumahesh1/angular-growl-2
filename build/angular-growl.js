@@ -1,14 +1,14 @@
 /**
- * angular-growl-v2 - v0.7.8 - 2015-10-25
+ * angular-growl-v2 - v0.7.9 - 2016-01-05
  * http://janstevens.github.io/angular-growl-2
- * Copyright (c) 2015 Marco Rinck,Jan Stevens,Silvan van Leeuwen; Licensed MIT
+ * Copyright (c) 2016 Marco Rinck,Jan Stevens,Silvan van Leeuwen; Licensed MIT
  */
 angular.module('angular-growl', []);
 angular.module('angular-growl').directive('growl', [function () {
     'use strict';
     return {
       restrict: 'A',
-      templateUrl: 'templates/growl/growl.html',
+      templateUrl: 'app/dir/growl.tpl.html',
       replace: false,
       scope: {
         reference: '@',
@@ -76,15 +76,6 @@ angular.module('angular-growl').directive('growl', [function () {
       ]
     };
   }]);
-angular.module('angular-growl').run([
-  '$templateCache',
-  function ($templateCache) {
-    'use strict';
-    if ($templateCache.get('templates/growl/growl.html') === undefined) {
-      $templateCache.put('templates/growl/growl.html', '<div class="growl-container" ng-class="wrapperClasses()">' + '<div class="growl-item alert" ng-repeat="message in growlMessages.directives[referenceId].messages" ng-class="alertClasses(message)" ng-click="stopTimeoutClose(message)">' + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="growlMessages.deleteMessage(message)" ng-show="!message.disableCloseButton">&times;</button>' + '<button type="button" class="close" aria-hidden="true" ng-show="showCountDown(message)">{{message.countdown}}</button>' + '<h4 class="growl-title" ng-show="message.title" ng-bind="message.title"></h4>' + '<div class="growl-message" ng-bind-html="message.text"></div>' + '</div>' + '</div>');
-    }
-  }
-]);
 angular.module('angular-growl').provider('growl', function () {
   'use strict';
   var _ttl = {
@@ -223,6 +214,7 @@ angular.module('angular-growl').provider('growl', function () {
           severity: severity,
           ttl: _config.ttl || _ttl[severity],
           variables: _config.variables || {},
+          data: _config.data || {},
           disableCloseButton: _config.disableCloseButton === undefined ? _disableCloseButton : _config.disableCloseButton,
           disableIcons: _config.disableIcons === undefined ? _disableIcons : _config.disableIcons,
           disableCountDown: _config.disableCountDown === undefined ? _disableCountDown : _config.disableCountDown,
