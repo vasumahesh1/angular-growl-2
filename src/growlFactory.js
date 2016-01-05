@@ -236,6 +236,7 @@ angular.module("angular-growl").provider("growl", function () {
         severity: severity,
         ttl: _config.ttl || _ttl[severity],
         variables: _config.variables || {},
+        data: _config.data || {},
         disableCloseButton: _config.disableCloseButton === undefined ? _disableCloseButton : _config.disableCloseButton,
         disableIcons: _config.disableIcons === undefined ? _disableIcons : _config.disableIcons,
         disableCountDown: _config.disableCountDown === undefined ? _disableCountDown : _config.disableCountDown,
