@@ -4,7 +4,7 @@ angular.module("angular-growl").directive("growl", [
 
     return {
       restrict: 'A',
-      templateUrl: 'app/dir/growl.tpl.html',
+      templateUrl: 'app/dir/tpl/growl.tpl.html',
       replace: false,
       scope: {
         reference: '@',
