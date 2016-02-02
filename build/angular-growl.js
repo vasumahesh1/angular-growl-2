@@ -1,5 +1,5 @@
 /**
- * angular-growl-v2 - v0.8.0 - 2016-01-06
+ * angular-growl-v2 - v0.8.1 - 2016-02-02
  * http://janstevens.github.io/angular-growl-2
  * Copyright (c) 2016 Marco Rinck,Jan Stevens,Silvan van Leeuwen; Licensed MIT
  */
@@ -215,6 +215,7 @@ angular.module('angular-growl').provider('growl', function () {
           ttl: _config.ttl || _ttl[severity],
           variables: _config.variables || {},
           data: _config.data || {},
+          inline: _config.inline || false,
           disableCloseButton: _config.disableCloseButton === undefined ? _disableCloseButton : _config.disableCloseButton,
           disableIcons: _config.disableIcons === undefined ? _disableIcons : _config.disableIcons,
           disableCountDown: _config.disableCountDown === undefined ? _disableCountDown : _config.disableCountDown,
